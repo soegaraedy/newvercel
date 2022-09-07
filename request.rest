@@ -1,0 +1,15 @@
+//GET all users
+GET  http://localhost:5000/api/users
+
+###
+//GET user by ID
+GET  http://localhost:5000/api/users/6312347f601b7cf29e733544
+
+###
+//update certain user
+PATCH http://localhost:5000/api/users/6312347f601b7cf29e733544
+Content-Type: application/json
+
+{
+    "name": "Updated Name"
+}
