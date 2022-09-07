@@ -5,7 +5,23 @@ const User = require("../models/UserModel");
 module.exports={
     //Get all users
     getUsers : async(req, res) => {
-        res.json({message: "Hello, World!"});
+        //res.json({message: "Hello, World!"});
+        try {
+            console.log("Start Get All Users: ");
+            const users = await User.find();
+            res.json(users);
+            //console.log(users.length);
+            /*
+            for (let i = 0; i<= users.length-1; i++){
+                console.log("Iterasi ke: " +i);
+                console.log(JSON.parse(JSON.stringify(users[i])));
+            }
+            */
+            
+        } catch (error) {
+            console.log("Failed to Get All Users: ");
+            res.status(500).json({message: error.message});
+        }
         
     
     },

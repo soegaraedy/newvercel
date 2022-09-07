@@ -28,7 +28,7 @@ db();
 */
 //const mongoose = require ("mongoose");
 //const dbUrl = "mongodb+srv://vx746v3eRvXpCeb4:vx746v3eRvXpCeb4@cluster0.lxut7l9.mongodb.net/auth_db?retryWrites=true&w=majority";
-
+//const dbUrl = "mongodb+srv://vercel-admin-user-631877cd2622a507e524f2c1:Gqzm9fBDhC47WNmw@cluster0.lxut7l9.mongodb.net/admin";
 mongoose.connect(
   //dbUrl,
   process.env.MONGODB_URI,
