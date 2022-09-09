@@ -7,9 +7,6 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 const mongoose = require("mongoose");
 
-
-
-//const UserRoute = require("./routes/UserRoute");
 const cors = require("cors");
 
 const users = require("./api/users");
@@ -17,26 +14,8 @@ const AuthRoute = require("./api/AuthRoute");
 
 require('dotenv').config();
 
-//Database
-/*
-const db = (module.exports = () => {
-  try {
-    mongoose.connect(
-      process.env.DATABASE_URI,
-      { useNewUrlParser: true, useUnifiedTopology: true },
-      () => console.log("Database connected successfully")
-    );
-  } catch (error) {
-    console.log("Database connection failed");
-    console.log(error);
-  }
-});
+const MONGODB_URI = "mongodb+srv://vx746v3eRvXpCeb4:vx746v3eRvXpCeb4@cluster0.lxut7l9.mongodb.net/auth_db?retryWrites=true&w=majority";
 
-db();
-*/
-//const mongoose = require ("mongoose");
-//const dbUrl = "mongodb+srv://vx746v3eRvXpCeb4:vx746v3eRvXpCeb4@cluster0.lxut7l9.mongodb.net/auth_db?retryWrites=true&w=majority";
-//const dbUrl = "mongodb+srv://vercel-admin-user-631877cd2622a507e524f2c1:Gqzm9fBDhC47WNmw@cluster0.lxut7l9.mongodb.net/admin";
 mongoose.connect(
   //dbUrl,
   process.env.MONGODB_URI,
@@ -61,9 +40,11 @@ mongoDBstore.on('error', function(error) {
 
 const app = express();
 
+const SESSION_SECRET = "asdadksjflsdjkflaewiur3209905868dfjdodoeljdpow987jdfnkakqi2346dfsdfw";
 app.use(session({
   name: 'mycookie',
-  secret: process.env.SESSION_SECRET,
+  //secret: process.env.SESSION_SECRET,
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   store: mongoDBstore,
