@@ -1,6 +1,7 @@
 //https://stackoverflow.com/questions/16631064/declare-multiple-module-exports-in-node-js
 const mongoose =  require("mongoose");
 const User = require("../models/UserModel");
+const argon2 = require('argon2');
 
 module.exports={
     //Get all users
@@ -21,9 +22,7 @@ module.exports={
         } catch (error) {
             console.log("Failed to Get All Users: ");
             res.status(500).json({message: error.message});
-        }
-        
-    
+        }      
     },
 
     //GET one user specified by id
@@ -65,10 +64,18 @@ module.exports={
         }
     },
 
-
     //ADD user
     saveUser : async(req, res)=>{
-        const user = new User(req.body);
+        const {name, email, password, confPassword, role} = req.body;
+        if(password !== confPassword) return res.status(400).json({msg: "Unmatch Password with Confirm Password"});
+        const hashPassword = await argon2.hash(password);
+        //const user = new User(req.body);
+        const user = new User({
+            name: name, 
+            email: email, 
+            password: hashPassword, 
+            role:role
+        });
         try {
             const insertedUser = await user.save();
             res.status(201).json(insertedUser);

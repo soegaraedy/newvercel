@@ -1,15 +1,51 @@
+//https://newvercel-kdp7ttbtg-soegaraedy.vercel.app/api/users
+###
 //GET all users
 GET  http://localhost:5000/api/users
 
 ###
 //GET user by ID
-GET  http://localhost:5000/api/users/6312347f601b7cf29e733544
+GET  http://localhost:5000/api/users/631b602ce8d240a19f0eafa3
 
 ###
 //update certain user
-PATCH http://localhost:5000/api/users/6312347f601b7cf29e733544
+PATCH http://localhost:5000/api/users/63124452e500d6bac4ea9dcf
 Content-Type: application/json
 
 {
-    "name": "Updated Name"
+    "email": "user2@gmail.com"
 }
+###
+//ADD USER
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "asdqwe1234",
+    "confPassword": "asdqwe1234",
+    "role": "admin"
+
+}
+###
+//DELETE User
+DELETE http://localhost:5000/api/users/63124452e500d6bac4ea9dcf
+
+###
+//Login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "asdqwe1234"
+}
+
+###
+//About Me
+GET http://localhost:5000/me
+
+###
+//Logout
+DELETE  http://localhost:5000/logout
