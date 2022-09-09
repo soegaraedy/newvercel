@@ -14,8 +14,6 @@ const AuthRoute = require("./api/AuthRoute");
 
 require('dotenv').config();
 
-const MONGODB_URI = "mongodb+srv://vx746v3eRvXpCeb4:vx746v3eRvXpCeb4@cluster0.lxut7l9.mongodb.net/auth_db?retryWrites=true&w=majority";
-
 mongoose.connect(
   //dbUrl,
   process.env.MONGODB_URI,
@@ -40,11 +38,11 @@ mongoDBstore.on('error', function(error) {
 
 const app = express();
 
-const SESSION_SECRET = "asdadksjflsdjkflaewiur3209905868dfjdodoeljdpow987jdfnkakqi2346dfsdfw";
+//const SESSION_SECRET = "asdadksjflsdjkflaewiur3209905868dfjdodoeljdpow987jdfnkakqi2346dfsdfw";
 app.use(session({
   name: 'mycookie',
-  //secret: process.env.SESSION_SECRET,
-  secret: SESSION_SECRET,
+  secret: process.env.SESSION_SECRET,
+  //secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   store: mongoDBstore,
