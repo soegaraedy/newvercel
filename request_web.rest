@@ -1,0 +1,17 @@
+###
+//Login
+POST https://newvercel-7aeos7a4t-soegaraedy.vercel.app/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "asdqwe1234"
+}
+
+###
+//me
+GET https://newvercel-7aeos7a4t-soegaraedy.vercel.app/me
+
+###
+//GET all users
+GET  https://newvercel-7aeos7a4t-soegaraedy.vercel.app/api/users

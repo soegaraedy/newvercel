@@ -1,0 +1,62 @@
+//Login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "asdqwe1234"
+}
+
+###
+//About Me
+GET http://localhost:5000/me
+
+###
+//Logout
+DELETE  http://localhost:5000/logout
+
+###
+//GET all products
+GET  http://localhost:5000/api/products
+
+###
+//GET A PRODUCT
+GET  http://localhost:5000/api/products/631cc7681a8a03f7dd77f709
+
+###
+//GET A PRODUCT ADMIN
+GET  http://localhost:5000/api/products/631ce5c71a8a03f7dd77f70c
+
+###
+//DELETE A PRODUCT
+DELETE http://localhost:5000/api/products/631ce84901c77e58545471ed
+
+###
+//ADD a product
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+    "name": "Sarung",
+    "price": "2000"
+}
+
+###
+//Update a product
+PATCH http://localhost:5000/api/products/631ce5c71a8a03f7dd77f70c
+Content-Type: application/json
+
+{
+    "name" : "Baju Koko",
+    "price": "2500"
+}
+
+###
+//Update a product
+PATCH http://localhost:5000/api/products/631ce5c71a8a03f7dd77f70c
+Content-Type: application/json
+
+{
+    "name" : "Baju Gamis",
+    "price": "2500"
+}

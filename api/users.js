@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 require("cors");
 
-
-
 const Usercontrollers = require("../controllers/UserController");
 const getUsers = Usercontrollers.getUsers;
 const saveUser = Usercontrollers.saveUser;

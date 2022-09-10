@@ -33,7 +33,9 @@ module.exports={
             res.json(user);
         } catch (error) {
             console.log("Error getUserById");
-            res.status(404).json({message: error.message});
+            res
+             .status(404)
+             .json({message: error.message});
         }
 
     },

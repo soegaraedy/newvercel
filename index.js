@@ -3,14 +3,18 @@ const express = require("express");
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
 
+//const bodyParser    = require('body-parser')
+
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const mongoose = require("mongoose");
 
 const cors = require("cors");
 
+//Router or API 
 const users = require("./api/users");
 const AuthRoute = require("./api/AuthRoute");
+const ProductRoute = require("./api/ProductRoute");
 
 require('dotenv').config();
 
@@ -55,11 +59,16 @@ app.use(session({
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
 app.use(cookieParser());
 
+//app.use(bodyParser.json())
+//app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(AuthRoute);
 app.use("/api/users", users);
+app.use("/api/products", ProductRoute);
 
 
 const port = process.env.PORT || 5000;

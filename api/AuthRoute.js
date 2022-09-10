@@ -10,7 +10,7 @@ const Login = AuthController.Login;
 const Logout = AuthController.Logout;
 const Me = AuthController.Me;
 
-//End point "/" nya adalah /api/users
+//End point "/" nya adalah "/"
 router.get('/me', Me);
 router.post("/login", Login);
 router.delete("/logout", Logout);
